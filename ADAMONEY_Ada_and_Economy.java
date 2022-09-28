@@ -10,6 +10,39 @@ public class ADAMONEY_Ada_and_Economy {
 	
 	static long T[];
 	
+	/*
+	
+	First we have to do the task of the best cases, that is the value of the n is less than 5. On that case our answer will be come directly from the T array. So we have to count from the 5th index. First try to find the genaral equation. That is the for every value of the pemutated array T. The eqution will be the 
+
+    A(i) = A(i - 1) + 2 * A(i - 2) + 5 * A(i - 4) + 
+    A(i - 5)
+
+    So, first try to build the matrixes,
+
+T =    |  0		1	2	3	4	5
+     --|----------------------------------------------------------------     
+     0 |  0		0	0	0	0	0
+     --|----------------------------------------------------------------
+     1 |  0		1	2	0	5	1  -> relation                             
+     --|---------------------------------------------------------------
+     2 |  0		1	0	0	0	0                               
+     --|----------------------------------------------------------------
+     3 |  0		0	1	0	0	0                   
+     --|----------------------------------------------------------------
+     4 |  0		0	0	1	0	0                   
+     --|---------------------------------------------------------------
+     5 |  0		0	0	0	1	0                   
+     --|---------------------------------------------------------------
+
+     So our final mat will be the T(n - 4). 
+
+     and the total number will come from the 1'th 
+     index of the matrix
+
+     ans = sum(T(1, i) * T(j)), 1 <= i <= 5, 4 >= j >= 1
+
+	*/
+	
 	static void solve() {
 		
 		if(n < 5) {
